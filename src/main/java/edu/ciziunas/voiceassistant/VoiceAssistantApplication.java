@@ -40,7 +40,6 @@ public class VoiceAssistantApplication {
 
 
         while ((result = recognizer.getResult()) != null) {
-            System.out.println(result.getHypothesis());
             String hypothesis = result.getHypothesis();
             System.out.println(hypothesis);
         }
