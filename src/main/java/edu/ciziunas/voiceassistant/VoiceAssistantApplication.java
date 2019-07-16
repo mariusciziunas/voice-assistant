@@ -18,7 +18,7 @@ public class VoiceAssistantApplication {
 
         String acousticModelPath = "resource:/edu/cmu/sphinx/models/en-us/en-us";
         configuration.setAcousticModelPath(acousticModelPath);
-        String dictionaryPath = "resource:/ciziunas-en-us.dict";
+        String dictionaryPath = "resource:/reduced-voc-en-us.dict";
 //        String dictionaryPath = "resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict";
         configuration.setDictionaryPath(dictionaryPath);
         String languageModelPath = "resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin";
