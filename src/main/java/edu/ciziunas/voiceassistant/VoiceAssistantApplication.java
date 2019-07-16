@@ -42,6 +42,10 @@ public class VoiceAssistantApplication {
         while ((result = recognizer.getResult()) != null) {
             String hypothesis = result.getHypothesis();
             System.out.println(hypothesis);
+            if ("hello i'm from lithuania".equals(hypothesis) || "hello i am from lithuania".equals(hypothesis)) {
+                Thread.sleep(3000);
+                System.out.println("labas, tautieti!");
+            }
         }
         recognizer.stopRecognition();
 
