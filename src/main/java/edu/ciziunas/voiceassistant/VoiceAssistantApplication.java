@@ -4,13 +4,8 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
-//@SpringBootApplication
 public class VoiceAssistantApplication {
 
-//	public static void main(String[] args) {
-//		System.out.println("Labas");
-//		SpringApplication.run(VoiceAssistantApplication.class, args);
-//	}
 
 
     public static void main(String[] args) throws Exception {
