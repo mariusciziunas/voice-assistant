@@ -15,6 +15,13 @@ Select Wifi Network
 
 If asks for update - click "yes"
 
+## Install Java 8 on Raspberry
+
+```
+sudo apt-get update && sudo apt-get install oracle-java8-jdk
+```
+
+
 ## Prepare voice assistant
 
 Open terminal
