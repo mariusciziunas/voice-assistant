@@ -1,4 +1,4 @@
-package edu.ciziunas.voiceassistant;
+package edu.ciziunas.voiceassistant.voice;
 
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
@@ -39,5 +39,14 @@ public class VoiceAssistant {
         String languageModelPath = "resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin";
         configuration.setLanguageModelPath(languageModelPath);
         return configuration;
+    }
+
+    public static void main(String[] args) {
+        VoiceAssistant voiceAssistant = new VoiceAssistant();
+        voiceAssistant.start();
+        String command = "";
+        while ((command = voiceAssistant.getCommand()) != null) {
+            System.out.println(command);
+        }
     }
 }
