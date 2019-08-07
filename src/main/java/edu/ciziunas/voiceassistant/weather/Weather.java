@@ -1,18 +1,10 @@
 package edu.ciziunas.voiceassistant.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
 
     private String description;
 
-    public Weather(String description) {
-        this.description = description;
-    }
-
-    public Weather() {
-    }
+    public Weather() {}
 
     public String getDescription() {
         return description;
@@ -20,5 +12,12 @@ public class Weather {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "description='" + description + '\'' +
+                '}';
     }
 }

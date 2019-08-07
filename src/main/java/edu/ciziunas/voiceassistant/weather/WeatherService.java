@@ -1,9 +1,12 @@
 package edu.ciziunas.voiceassistant.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.web.client.RestTemplate;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.javanet.NetHttpTransport;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+import java.io.IOException;
+
 public class WeatherService {
 
     private String apiKey;
@@ -12,9 +15,16 @@ public class WeatherService {
         this.apiKey = apiKey;
     }
 
-    public void getWeatherData(String city, String countryCode) {
-        RestTemplate restTemplate = new RestTemplate();
-        WeatherData weather = restTemplate.getForObject("https://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&appid=", WeatherData.class);
-        System.out.println(weather);
+    public String getWeatherData(String city, String countryCode) {
+        HttpRequestFactory requestFactory
+                = new NetHttpTransport().createRequestFactory();
+        try {
+            HttpRequest request = requestFactory.buildGetRequest(
+                    new GenericUrl("https://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&units=metric&appid="+apiKey));
+            return request.execute().parseAsString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Error when extracting weather data");
     }
 }

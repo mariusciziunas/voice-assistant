@@ -1,20 +1,30 @@
 package edu.ciziunas.voiceassistant.weather;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherData {
 
     private Main main;
-    private Weather weather;
+    private List<Weather> weather;
+    private String name;
 
     public WeatherData() {
 
     }
 
-    public WeatherData(Main main, Weather weather) {
+    public String getName() {
+        return name;
+    }
 
-        this.main = main;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Weather> getWeather() {
+        return weather;
+    }
+
+    public void setWeather(List<Weather> weather) {
         this.weather = weather;
     }
 
@@ -22,16 +32,8 @@ public class WeatherData {
         return main;
     }
 
-    public Weather getWeather() {
-        return weather;
-    }
-
     public void setMain(Main main) {
         this.main = main;
-    }
-
-    public void setWeather(Weather weather) {
-        this.weather = weather;
     }
 
     @Override
@@ -39,6 +41,7 @@ public class WeatherData {
         return "WeatherData{" +
                 "main=" + main +
                 ", weather=" + weather +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
